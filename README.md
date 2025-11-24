@@ -41,6 +41,31 @@ npm start
 npm run dev
 ```
 
+### Production mode (with PM2)
+
+```bash
+# Install dependencies (including PM2)
+npm install
+
+# Start in production mode (uses default env vars from config)
+npm run prod
+
+# Or set custom environment variables before starting
+PORT=8080 FRAPPE_TARGET=https://your-target.com npm run prod
+
+# Check status
+pm2 status
+
+# View logs
+pm2 logs frappe-proxy
+
+# Stop the application
+npm run prod:stop
+
+# Restart the application
+npm run prod:restart
+```
+
 ## Endpoints
 
 - **Health Check**: `GET http://localhost:8080/health`

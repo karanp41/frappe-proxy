@@ -4,7 +4,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 
 const app = express();
 const PORT = process.env.PORT || 8081;
-const FRAPPE_TARGET = process.env.FRAPPE_TARGET || 'https://sobha.u.frappe.cloud';
+const FRAPPE_TARGET = process.env.FRAPPE_TARGET || 'https://sobha-bt-sandbox.xstack.ae';
 
 // Enable CORS for all routes - allows ALL origins with credentials
 app.use(cors({
@@ -82,7 +82,8 @@ const frappeProxy = createProxyMiddleware({
                 return modifiedCookie;
             });
 
-            console.log(`[${new Date().toISOString()}] Modified cookies:`, proxyRes.headers['set-cookie']);
+            // console.log(`[${new Date().toISOString()}] Modified cookies:`, proxyRes.headers['set-cookie']);
+            console.log(`[${new Date().toISOString()}] Proxied with cookies: ${req.method} ${req.url}`);
         }
     },
     // Log proxy requests (optional, useful for debugging)
