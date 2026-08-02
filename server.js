@@ -1,10 +1,12 @@
 import cors from 'cors';
+import 'dotenv/config';
 import express from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
 const app = express();
 const PORT = process.env.PORT || 8081;
-const FRAPPE_TARGET = process.env.FRAPPE_TARGET || 'https://sobha-bt-sandbox.xstack.ae';
+const FRAPPE_TARGET = process.env.FRAPPE_TARGET;
+// const FRAPPE_TARGET = process.env.FRAPPE_TARGET || 'https://sobha-bt-sandbox.xstack.ae';
 
 // Enable CORS for all routes - allows ALL origins with credentials
 app.use(cors({
